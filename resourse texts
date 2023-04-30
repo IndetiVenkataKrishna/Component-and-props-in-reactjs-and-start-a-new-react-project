@@ -1,0 +1,58 @@
+// component
+const Welcome = () => <h1 className="greeting">Hello World</h1>;
+ReactDOM.render(<Welcome />, document.getElementById("root"));
+
+// component with props
+const Welcome1 = (props) => {
+const { name, greeting } = props;
+return (
+
+<h1 className="greeting">
+{greeting}, {name}!
+</h1>
+);
+};
+ReactDOM.render(
+<Welcome1 name="Krishna" greeting="Hello" />,
+document.getElementById("root")
+
+// component reusability
+const Welcome2 = (props) => {
+const { name, greeting } = props;
+return (
+
+<h1 className="greeting">
+{greeting}, {name}!
+</h1>
+);
+};
+ReactDOM.render(
+<div>
+<Welcome2 name="Krishna" greeting="Hello" />
+<Welcome2 name="Ram" greeting="Hi" />
+</div>,
+document.getElementById("root")
+);
+
+//component in component
+const Welcome3 = (props) => {
+const { name, greeting } = props;
+return (
+<h1 className="message">
+{greeting}, {name}!
+</h1>
+);
+};
+const Greetings = () => (
+<div>
+<Welcome3 name="Krishna" greeting="Hello" />
+<Welcome3 name="Ram" greeting="Hi" />
+</div>
+);
+ReactDOM.render(<Greetings />, document.getElementById("root"));
+
+
+// 
+creating a real world apps involves setups because large no of components need to be organised.
+facebook has created a third party package create-react-app to generate a ready made react application setup
+to setup myapp project in reactjs - create-react-app myapp --use-npm
